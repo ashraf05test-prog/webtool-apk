@@ -14,28 +14,26 @@
   --red:#B91C1C; --redl:#FEE2E2;
   --tg:#229ED9;
 }
-body { font-family:'Segoe UI',sans-serif; height:100vh; display:flex; flex-direction:column; overflow:hidden; background:var(--bg); }
-#hdr { background:var(--white); padding:8px 12px; display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--s200); flex-shrink:0; }
+body { font-family:'Segoe UI',sans-serif; min-height:100vh; display:flex; flex-direction:column; background:var(--bg); }
+#hdr { background:var(--white); padding:8px 12px; display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--s200); }
 #hdrInfo { flex:1; overflow:hidden; }
 #hdrTitle { font-size:12px; font-weight:700; color:var(--s900); }
 #hdrSub { font-size:9px; color:var(--s500); margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-#btnMenu { font-size:11px; background:var(--s700); color:#fff; border:none; border-radius:6px; padding:5px 10px; cursor:pointer; flex-shrink:0; }
-#tabs { background:var(--white); border-bottom:1px solid var(--s200); display:flex; gap:4px; padding:5px 8px; overflow-x:auto; scrollbar-width:none; flex-shrink:0; }
+#btnMenu { font-size:11px; background:var(--s700); color:#fff; border:none; border-radius:6px; padding:5px 10px; cursor:pointer; }
+#tabs { background:var(--white); border-bottom:1px solid var(--s200); display:flex; gap:4px; padding:5px 8px; overflow-x:auto; scrollbar-width:none; }
 #tabs::-webkit-scrollbar { display:none; }
-.tab { font-size:10px; border:none; border-radius:14px; padding:3px 11px; cursor:pointer; background:var(--s100); color:var(--s700); flex-shrink:0; font-weight:500; }
+.tab { font-size:10px; border:none; border-radius:14px; padding:4px 12px; cursor:pointer; background:var(--s100); color:var(--s700); flex-shrink:0; font-weight:500; }
 .tab.on { background:var(--s700); color:#fff; }
-#wv1wrap { height:190px; flex-shrink:0; border-bottom:2px solid var(--s200); position:relative; }
-#wv1 { width:100%; height:100%; border:none; display:block; }
-#wv1lbl { position:absolute; top:4px; left:6px; font-size:9px; background:rgba(0,0,0,.4); color:#fff; padding:2px 7px; border-radius:10px; pointer-events:none; }
-#mid { background:var(--white); border-bottom:1px solid var(--s200); overflow-x:auto; scrollbar-width:none; flex-shrink:0; }
+#wv1bar { background:var(--s200); padding:6px 10px; display:flex; align-items:center; gap:6px; border-bottom:2px solid var(--s200); }
+#wv1url { flex:1; font-size:10px; color:var(--s700); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#mid { background:var(--white); border-bottom:1px solid var(--s200); overflow-x:auto; scrollbar-width:none; }
 #mid::-webkit-scrollbar { display:none; }
 #midIn { display:flex; gap:4px; padding:5px 8px; width:max-content; }
-#resBar { padding:3px 10px 4px; flex-shrink:0; }
+#resBar { padding:3px 10px 4px; }
 #resBox { background:var(--s200); padding:6px 10px; border-radius:6px; display:flex; align-items:center; gap:6px; }
-#resTxt { flex:1; font-size:10px; color:var(--s900); max-height:34px; overflow:hidden; line-height:1.4; }
+#resTxt { flex:1; font-size:10px; color:var(--s900); line-height:1.4; }
 #resRight { font-size:11px; font-weight:700; color:var(--blue); flex-shrink:0; }
-#wv2 { flex:1; border:none; width:100%; display:block; min-height:0; }
-#bot { background:var(--white); border-top:1px solid var(--s200); overflow-x:auto; scrollbar-width:none; flex-shrink:0; }
+#bot { background:var(--white); border-top:1px solid var(--s200); overflow-x:auto; scrollbar-width:none; }
 #bot::-webkit-scrollbar { display:none; }
 #botIn { display:flex; gap:4px; padding:5px 8px; width:max-content; min-width:100%; justify-content:center; }
 .btn { font-size:10px; border:none; border-radius:6px; padding:0 11px; min-height:32px; cursor:pointer; white-space:nowrap; font-family:inherit; font-weight:500; flex-shrink:0; }
@@ -64,17 +62,19 @@ body { font-family:'Segoe UI',sans-serif; height:100vh; display:flex; flex-direc
 #notePanel { position:relative; z-index:1; background:var(--white); border-radius:12px; padding:16px; width:92%; max-width:360px; max-height:88vh; display:flex; flex-direction:column; gap:6px; }
 #notePanel h3 { font-size:14px; font-weight:700; color:var(--s900); flex-shrink:0; }
 #noteUrlTxt { font-size:9px; color:var(--s500); word-break:break-all; flex-shrink:0; }
-#noteTa { width:100%; background:var(--s100); border:none; font-size:11px; color:var(--s900); padding:8px 10px; border-radius:8px; font-family:inherit; outline:none; resize:none; height:56px; flex-shrink:0; }
+#noteTa { width:100%; background:var(--s100); border:none; font-size:11px; color:var(--s900); padding:8px 10px; border-radius:8px; font-family:inherit; outline:none; resize:none; height:60px; flex-shrink:0; }
 #noteList { flex:1; overflow-y:auto; min-height:0; }
 .nitem { background:var(--s100); border-radius:6px; padding:7px 9px; margin-bottom:3px; display:flex; gap:6px; }
 .nurl { flex:1; font-size:10px; color:var(--blue); word-break:break-all; }
 .nnote { font-size:10px; color:var(--s700); margin-top:2px; }
 .ntime { font-size:9px; color:#94a3b8; margin-top:1px; }
-.ndel { color:var(--red); cursor:pointer; font-weight:700; flex-shrink:0; font-size:13px; padding:0 2px; }
+.ndel { color:var(--red); cursor:pointer; font-weight:700; flex-shrink:0; font-size:13px; }
 #notePanel .btn { flex-shrink:0; }
 </style>
 </head>
 <body>
+
+<!-- HEADER -->
 <div id="hdr">
   <div id="hdrInfo">
     <div id="hdrTitle">WEBTOOL PRO</div>
@@ -82,48 +82,61 @@ body { font-family:'Segoe UI',sans-serif; height:100vh; display:flex; flex-direc
   </div>
   <button id="btnMenu" onclick="toggleMenu()">☰ Menu</button>
 </div>
+
+<!-- TABS WV1 -->
 <div id="tabs">
-  <button class="tab on" onclick="loadWV(1,'https://www.youtube.com',this)">▶ YouTube</button>
-  <button class="tab" onclick="loadWV(1,'https://www.tiktok.com',this)">🎵 TikTok</button>
-  <button class="tab" onclick="loadWV(1,'https://www.kuaishou.com',this)">⚡ Kuaishou</button>
-  <button class="tab" onclick="loadWV(1,'https://web.telegram.org',this)">✈ Telegram</button>
-  <button class="tab" onclick="loadWV(1,'https://www.facebook.com',this)">👤 Facebook</button>
+  <button class="tab on" onclick="loadWV1('https://www.youtube.com',this)">▶ YouTube</button>
+  <button class="tab" onclick="loadWV1('https://www.tiktok.com',this)">🎵 TikTok</button>
+  <button class="tab" onclick="loadWV1('https://www.kuaishou.com',this)">⚡ Kuaishou</button>
+  <button class="tab" onclick="loadWV1('https://web.telegram.org',this)">✈ Telegram</button>
+  <button class="tab" onclick="loadWV1('https://www.facebook.com',this)">👤 Facebook</button>
 </div>
-<div id="wv1wrap">
-  <iframe id="wv1" src="about:blank"></iframe>
-  <div id="wv1lbl">WV 1</div>
+
+<!-- WV1 URL BAR -->
+<div id="wv1bar">
+  <span style="font-size:9px;font-weight:700;color:var(--s500);flex-shrink:0;">WV1:</span>
+  <div id="wv1url">about:blank</div>
+  <button class="btn bn" style="min-height:26px;padding:0 8px;font-size:10px;" onclick="rfsh1()">↺</button>
+  <button class="btn bn" style="min-height:26px;padding:0 8px;font-size:10px;" onclick="bk1()">←</button>
 </div>
+
+<!-- MID TOOLBAR -->
 <div id="mid">
   <div id="midIn">
     <button class="btn bd" onclick="toggleMenu()">☰ Menu</button>
-    <button class="btn bn" onclick="rfsh(1)">↺ WV1</button>
-    <button class="btn bn" onclick="bk(1)">← WV1</button>
-    <button class="btn bn" onclick="cpUrl(1)">🔗 URL1</button>
-    <button class="btn bn" onclick="rfsh(2)">↺ WV2</button>
-    <button class="btn bn" onclick="bk(2)">← WV2</button>
-    <button class="btn bn" onclick="cpUrl(2)">🔗 URL2</button>
+    <button class="btn bn" onclick="rfsh1()">↺ WV1</button>
+    <button class="btn bn" onclick="bk1()">← WV1</button>
+    <button class="btn bn" onclick="cpUrl1()">🔗 URL1</button>
+    <button class="btn bn" onclick="rfsh2()">↺ WV2</button>
+    <button class="btn bn" onclick="bk2()">← WV2</button>
+    <button class="btn bn" onclick="cpUrl2()">🔗 URL2</button>
     <button class="btn bg" onclick="savePage()">💾 Save</button>
     <button class="btn bn" onclick="openNote()">📝 Note</button>
-    <button class="btn btg" onclick="openTG()">✈ TG Bot</button>
+    <button class="btn btg" onclick="openTG()">✈ TG</button>
   </div>
 </div>
+
+<!-- RESULT BAR -->
 <div id="resBar">
   <div id="resBox">
     <div id="resTxt">Ready</div>
     <div id="resRight">-</div>
   </div>
 </div>
-<iframe id="wv2" src="about:blank"></iframe>
+
+<!-- BOTTOM TOOLBAR -->
 <div id="bot">
   <div id="botIn">
     <button class="btn bg" onclick="savePage()">💾 Save</button>
-    <button class="btn bn" onclick="cpUrl(2)">🔗 Copy Link</button>
+    <button class="btn bn" onclick="cpUrl2()">🔗 Copy Link</button>
     <button class="btn bn" onclick="openNote()">📝 Note</button>
     <button class="btn bn" onclick="showSaved()">📋 Saved</button>
     <button class="btn br" onclick="clearAll()">🗑 Clear</button>
     <button class="btn btg" onclick="openTG()">✈ TG Bot</button>
   </div>
 </div>
+
+<!-- MENU -->
 <div class="ov" id="menuOv">
   <div class="ovbg" onclick="toggleMenu()"></div>
   <div id="menuPanel">
@@ -134,24 +147,24 @@ body { font-family:'Segoe UI',sans-serif; height:100vh; display:flex; flex-direc
     <div id="menuBody">
       <div class="mlbl">Load URL → WV1</div>
       <input class="inp" id="mInp1" type="url" placeholder="https://..."/>
-      <button class="btn bd fw" onclick="menuLoad(1)">Load WebView 1</button>
-      <div style="margin-top:8px;" class="mlbl">Load URL → WV2</div>
+      <button class="btn bd fw" onclick="menuLoad1()">Load WebView 1</button>
+      <div style="margin-top:8px;" class="mlbl">Load URL → WV2 (Main)</div>
       <input class="inp" id="mInp2" type="url" placeholder="https://..."/>
-      <button class="btn bd fw" onclick="menuLoad(2)">Load WebView 2</button>
+      <button class="btn bd fw" onclick="menuLoad2()">Load WebView 2</button>
       <div class="mdiv"></div>
       <div class="mlbl">✈ Telegram Bot URL</div>
       <input class="inp" id="tgInp" type="url" placeholder="https://t.me/YourBot"/>
       <button class="btn btg fw" onclick="saveTG()">Save TG Bot URL</button>
-      <button class="btn btg fw" style="margin-top:3px;" onclick="openTG()">Open TG Bot in WV2</button>
+      <button class="btn btg fw" style="margin-top:3px;" onclick="openTG()">Open TG Bot</button>
       <div class="mdiv"></div>
       <div class="mlbl">Controls</div>
       <div class="g2">
-        <button class="btn bn" onclick="rfsh(1);toggleMenu()">↺ Refresh WV1</button>
-        <button class="btn bn" onclick="rfsh(2);toggleMenu()">↺ Refresh WV2</button>
-        <button class="btn bn" onclick="bk(1);toggleMenu()">← Back WV1</button>
-        <button class="btn bn" onclick="bk(2);toggleMenu()">← Back WV2</button>
-        <button class="btn bn" onclick="cpUrl(1);toggleMenu()">🔗 URL WV1</button>
-        <button class="btn bn" onclick="cpUrl(2);toggleMenu()">🔗 URL WV2</button>
+        <button class="btn bn" onclick="rfsh1();toggleMenu()">↺ Refresh WV1</button>
+        <button class="btn bn" onclick="rfsh2();toggleMenu()">↺ Refresh WV2</button>
+        <button class="btn bn" onclick="bk1();toggleMenu()">← Back WV1</button>
+        <button class="btn bn" onclick="bk2();toggleMenu()">← Back WV2</button>
+        <button class="btn bn" onclick="cpUrl1();toggleMenu()">🔗 URL WV1</button>
+        <button class="btn bn" onclick="cpUrl2();toggleMenu()">🔗 URL WV2</button>
       </div>
       <div class="mdiv"></div>
       <div class="g2">
@@ -162,6 +175,8 @@ body { font-family:'Segoe UI',sans-serif; height:100vh; display:flex; flex-direc
     </div>
   </div>
 </div>
+
+<!-- NOTE MODAL -->
 <div class="ov" id="noteOv">
   <div class="ovbg" onclick="closeNote()"></div>
   <div id="notePanel">
@@ -173,36 +188,68 @@ body { font-family:'Segoe UI',sans-serif; height:100vh; display:flex; flex-direc
     <button class="btn bn fw" onclick="closeNote()">Close</button>
   </div>
 </div>
+
 <script>
 var saved = JSON.parse(localStorage.getItem('wtp_saved') || '[]');
 var tgUrl = localStorage.getItem('wtp_tg') || '';
-function gf(n) { return document.getElementById('wv' + n); }
+var wv1CurrentUrl = '';
+var wv2CurrentUrl = '';
+
 function res(t) { document.getElementById('resTxt').textContent = t; }
 function rr(t) { document.getElementById('resRight').textContent = t; }
-function loadWV(n, url, tabEl) {
+function setHdrSub(t) { document.getElementById('hdrSub').textContent = t; }
+function setWv1Url(u) { document.getElementById('wv1url').textContent = u || 'about:blank'; wv1CurrentUrl = u || ''; }
+
+// Android bridge calls
+function loadWV1(url, tabEl) {
   if (!url) return;
   if (url.indexOf('http') !== 0) url = 'https://' + url;
-  gf(n).src = url;
-  document.getElementById('hdrSub').textContent = 'WV'+n+': '+url;
-  res('Loading WV'+n+'...');
+  if (typeof Android !== 'undefined') Android.loadWV1(url);
+  setWv1Url(url);
+  setHdrSub('WV1: ' + url);
+  res('Loading WV1...');
   if (tabEl) {
     document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('on'); });
     tabEl.classList.add('on');
   }
 }
-function rfsh(n) { try { gf(n).src = gf(n).src; res('Refreshed WV'+n); } catch(e){} }
-function bk(n) { try { gf(n).contentWindow.history.back(); } catch(e){ res('Cannot go back'); } }
-function cpUrl(n) {
-  var url = gf(n).src;
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(function(){ res('Copied: '+url); rr('✅'); });
-  } else { res(url); }
+
+function loadWV2(url) {
+  if (!url) return;
+  if (url.indexOf('http') !== 0) url = 'https://' + url;
+  if (typeof Android !== 'undefined') Android.loadWV2(url);
+  wv2CurrentUrl = url;
+  setHdrSub('WV2: ' + url);
+  res('Loading WV2...');
 }
+
+function rfsh1() { if (typeof Android !== 'undefined') Android.refreshWV1(); res('Refreshed WV1'); }
+function rfsh2() { if (typeof Android !== 'undefined') Android.refreshWV2(); res('Refreshed WV2'); }
+function bk1() { if (typeof Android !== 'undefined') Android.goBackWV1(); }
+function bk2() { if (typeof Android !== 'undefined') Android.goBackWV2(); }
+
+function cpUrl1() {
+  var url = typeof Android !== 'undefined' ? Android.getUrlWV1() : wv1CurrentUrl;
+  if (typeof Android !== 'undefined') Android.copyText(url);
+  res('Copied: ' + url); rr('✅');
+}
+function cpUrl2() {
+  var url = typeof Android !== 'undefined' ? Android.getUrlWV2() : wv2CurrentUrl;
+  if (typeof Android !== 'undefined') Android.copyText(url);
+  res('Copied: ' + url); rr('✅');
+}
+
 function toggleMenu() { document.getElementById('menuOv').classList.toggle('show'); }
-function menuLoad(n) {
-  var v = document.getElementById('mInp'+n).value.trim();
-  if (v) { loadWV(n, v); toggleMenu(); }
+
+function menuLoad1() {
+  var v = document.getElementById('mInp1').value.trim();
+  if (v) { loadWV1(v, null); toggleMenu(); }
 }
+function menuLoad2() {
+  var v = document.getElementById('mInp2').value.trim();
+  if (v) { loadWV2(v); toggleMenu(); }
+}
+
 function saveTG() {
   var v = document.getElementById('tgInp').value.trim();
   if (!v) return;
@@ -212,30 +259,36 @@ function saveTG() {
 }
 function openTG() {
   if (!tgUrl) { res('Menu থেকে TG Bot URL set কর!'); return; }
-  loadWV(2, tgUrl, null);
+  loadWV2(tgUrl);
 }
 if (tgUrl) { document.getElementById('tgInp').value = tgUrl; }
+
 function savePage() {
-  var url = gf(2).src;
-  if (!url || url === 'about:blank') url = gf(1).src;
-  if (!url || url === 'about:blank') { res('No page loaded!'); return; }
+  var url = typeof Android !== 'undefined' ? Android.getUrlWV2() : wv2CurrentUrl;
+  if (!url || url === 'about:blank' || url === '') {
+    url = typeof Android !== 'undefined' ? Android.getUrlWV1() : wv1CurrentUrl;
+  }
+  if (!url || url === 'about:blank' || url === '') { res('No page loaded!'); return; }
   for (var i=0; i<saved.length; i++) { if (saved[i].url===url) { res('Already saved!'); return; } }
   saved.push({ url:url, note:'', time:new Date().toLocaleString() });
   localStorage.setItem('wtp_saved', JSON.stringify(saved));
   res('Saved!'); rr('✅');
 }
+
 function openNote() {
-  var url = gf(2).src || gf(1).src || '-';
-  document.getElementById('noteUrlTxt').textContent = url;
+  var url = typeof Android !== 'undefined' ? Android.getUrlWV2() : wv2CurrentUrl;
+  document.getElementById('noteUrlTxt').textContent = url || '-';
   document.getElementById('noteTa').value = '';
   renderList();
   document.getElementById('noteOv').classList.add('show');
 }
 function showSaved() { openNote(); }
 function closeNote() { document.getElementById('noteOv').classList.remove('show'); }
+
 function saveNote() {
-  var url = gf(2).src || gf(1).src;
-  if (!url || url==='about:blank') { alert('No page loaded!'); return; }
+  var url = typeof Android !== 'undefined' ? Android.getUrlWV2() : wv2CurrentUrl;
+  if (!url || url==='about:blank') { url = typeof Android !== 'undefined' ? Android.getUrlWV1() : wv1CurrentUrl; }
+  if (!url) { alert('No page loaded!'); return; }
   var note = document.getElementById('noteTa').value.trim();
   saved.push({ url:url, note:note, time:new Date().toLocaleString() });
   localStorage.setItem('wtp_saved', JSON.stringify(saved));
@@ -243,6 +296,7 @@ function saveNote() {
   res('Note saved!');
   renderList();
 }
+
 function renderList() {
   var el = document.getElementById('noteList');
   if (!saved.length) { el.innerHTML = '<div style="font-size:10px;color:#94a3b8;padding:4px;">Nothing saved.</div>'; return; }
@@ -253,11 +307,13 @@ function renderList() {
   }
   el.innerHTML = h;
 }
+
 function delItem(i) {
   saved.splice(i,1);
   localStorage.setItem('wtp_saved', JSON.stringify(saved));
   renderList();
 }
+
 function clearAll() {
   if (!confirm('সব delete করবেন?')) return;
   saved=[]; localStorage.removeItem('wtp_saved');
