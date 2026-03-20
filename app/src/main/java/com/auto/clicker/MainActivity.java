@@ -6,14 +6,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class MainActivity extends Activity {
     WebView wv;
@@ -33,11 +30,10 @@ public class MainActivity extends Activity {
         wv.setWebViewClient(new WebViewClient());
         wv.loadUrl("file:///android_asset/index.html");
 
-        // Check overlay permission
         if (!Settings.canDrawOverlays(this)) {
             new AlertDialog.Builder(this)
                 .setTitle("Permission Required")
-                .setMessage("Overlay permission দাও — যেকোনো app এর উপরে control panel দেখাতে")
+                .setMessage("Overlay permission দাও")
                 .setPositiveButton("Grant", (d, w) -> {
                     Intent i = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                         Uri.parse("package:" + getPackageName()));
@@ -47,11 +43,10 @@ public class MainActivity extends Activity {
                 .show();
         }
 
-        // Check accessibility
         if (!isAccessibilityEnabled()) {
             new AlertDialog.Builder(this)
                 .setTitle("Accessibility Required")
-                .setMessage("Accessibility Service enable কর — screen text read করতে")
+                .setMessage("Accessibility Service enable কর")
                 .setPositiveButton("Grant", (d, w) -> {
                     startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
                 })
@@ -67,9 +62,7 @@ public class MainActivity extends Activity {
             if (enabled == 1) {
                 String services = Settings.Secure.getString(getContentResolver(),
                     Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
-                if (services != null) {
-                    return services.contains(getPackageName());
-                }
+                if (services != null) return services.contains(getPackageName());
             }
         } catch (Exception e) {}
         return false;
@@ -81,16 +74,16 @@ public class MainActivity extends Activity {
             runOnUiThread(() -> {
                 Intent i = new Intent(MainActivity.this, OverlayService.class);
                 i.putExtra("rules", rulesJson);
-                startService(i);
-                Toast.makeText(MainActivity.this, "Service Started!", Toast.LENGTH_SHORT).show();
+                MainActivity.this.startService(i);
+                Toast.makeText(MainActivity.this, "Started!", Toast.LENGTH_SHORT).show();
             });
         }
 
         @JavascriptInterface
         public void stopService() {
             runOnUiThread(() -> {
-                stopService(new Intent(MainActivity.this, OverlayService.class));
-                Toast.makeText(MainActivity.this, "Service Stopped!", Toast.LENGTH_SHORT).show();
+                MainActivity.this.stopService(new Intent(MainActivity.this, OverlayService.class));
+                Toast.makeText(MainActivity.this, "Stopped!", Toast.LENGTH_SHORT).show();
             });
         }
 
@@ -117,11 +110,21 @@ public class MainActivity extends Activity {
         public boolean isServiceRunning() {
             return OverlayService.isRunning;
         }
+
+        @JavascriptInterface
+        public void copyText(String text) {
+            runOnUiThread(() -> {
+                android.content.ClipboardManager cm = (android.content.ClipboardManager)
+                    getSystemService(CLIPBOARD_SERVICE);
+                cm.setPrimaryClip(android.content.ClipData.newPlainText("text", text));
+                Toast.makeText(MainActivity.this, "Copied!", Toast.LENGTH_SHORT).show();
+            });
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        wv.evaluateJavascript("updateStatus()", null);
+        wv.evaluateJavascript("if(typeof updateStatus==='function')updateStatus()", null);
     }
 }
