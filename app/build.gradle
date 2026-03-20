@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.webtool.pro'
+    namespace 'com.auto.clicker'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.webtool.pro"
+        applicationId "com.auto.clicker"
         minSdk 21
         targetSdk 34
         versionCode 1
@@ -15,7 +15,7 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
         }
     }
